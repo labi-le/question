@@ -17,7 +17,7 @@ var (
 
 func parse() {
 	flag.StringVar(&model, "model", "gpt-3.5-turbo-0301", "model")
-	flag.StringVar(&question, "question", "", "question")
+	flag.StringVar(&question, "q", "", "question")
 	flag.StringVar(&token, "token", "", "token")
 	flag.IntVar(&temperature, "temperature", 0, "temperature")
 	flag.Parse()
@@ -76,6 +76,15 @@ func request(d Data, token string) (Response, error) {
 		return r, err
 	}
 	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		var e ErrorResponse
+		if decodeErr := json.NewDecoder(resp.Body).Decode(&e); decodeErr != nil {
+			panic(decodeErr)
+		}
+
+		return r, fmt.Errorf("error: %s, type: %s, code: %s", e.Error.Message, e.Error.Type, e.Error.Code)
+	}
 
 	return r, json.NewDecoder(resp.Body).Decode(&r)
 }

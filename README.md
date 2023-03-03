@@ -18,7 +18,7 @@ make install
 Usage of ./build/package/name:
   -model string
         model (default "gpt-3.5-turbo-0301")
-  -question string
+  -q string
         question
   -temperature int
         temperature
@@ -30,6 +30,6 @@ Usage of ./build/package/name:
 
 ```
 # comment
-question -question "how to find your dream job" -token "sdddk-dSg0tvGlqfI9HFdnsdisdjiss8djwdwww9djw9waDW"
+question -q "how to find your dream job" -token "sdddk-dSg0tvGlqfI9HFdnsdisdjiss8djwdwww9djw9waDW"
 ....
 ```

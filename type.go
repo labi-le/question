@@ -11,8 +11,6 @@ type Data struct {
 	Temperature int       `json:"temperature"`
 }
 
-type Token string
-
 type Response struct {
 	Id      string   `json:"id"`
 	Object  string   `json:"object"`
@@ -32,4 +30,15 @@ type Choice struct {
 	Message      Message `json:"message"`
 	FinishReason string  `json:"finish_reason"`
 	Index        int     `json:"index"`
+}
+
+type ErrorResponse struct {
+	Error Error `json:"error"`
+}
+
+type Error struct {
+	Message string      `json:"message"`
+	Type    string      `json:"type"`
+	Param   interface{} `json:"param"`
+	Code    string      `json:"code"`
 }
