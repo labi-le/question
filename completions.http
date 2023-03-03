@@ -1,0 +1,11 @@
+POST https://api.openai.com/v1/chat/completions
+Content-Type: application/json
+Authorization: Bearer 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
+
+{
+  "model": "gpt-3.5-turbo-0301",
+  "messages": [{
+    "role": "user",
+    "content": "что такое любовь"
+  }]
+}

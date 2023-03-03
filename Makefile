@@ -1,4 +1,4 @@
-PROJ_NAME = name
+PROJ_NAME = question
 
 MAIN_PATH = *.go
 BUILD_PATH = build/package/
